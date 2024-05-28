@@ -1,6 +1,6 @@
 package com.sport.shop.products.service;
 
-import com.sport.shop.products.entity.Brand;
+import com.sport.shop.products.model.entity.Brand;
 import com.sport.shop.products.repository.BrandRepository;
 import org.springframework.stereotype.Service;
 

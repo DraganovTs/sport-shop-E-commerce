@@ -1,7 +1,7 @@
 package com.sport.shop.products.repository;
 
 
-import com.sport.shop.products.entity.Brand;
+import com.sport.shop.products.model.entity.Brand;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

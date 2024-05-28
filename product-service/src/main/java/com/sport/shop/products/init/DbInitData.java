@@ -1,8 +1,8 @@
 package com.sport.shop.products.init;
 
-import com.sport.shop.products.entity.Brand;
-import com.sport.shop.products.entity.Category;
-import com.sport.shop.products.entity.Product;
+import com.sport.shop.products.model.entity.Brand;
+import com.sport.shop.products.model.entity.Category;
+import com.sport.shop.products.model.entity.Product;
 import com.sport.shop.products.repository.BrandRepository;
 import com.sport.shop.products.repository.CategoryRepository;
 import com.sport.shop.products.repository.ProductRepository;
@@ -78,6 +78,7 @@ public class DbInitData {
                 .sku("TestSKU")
                 .description("good for outdoor activities")
                 .price(23.44)
+                .title("Snikers")
                 .imageUrl("htt[://test.test")
                 .isActive(true)
                 .unitsInStock(3)
@@ -89,6 +90,7 @@ public class DbInitData {
                 .sku("TestSKU2")
                 .description("good for indoor activities")
                 .price(55.23)
+                .title("Shoker")
                 .imageUrl("htt[://test2.test2")
                 .isActive(true)
                 .unitsInStock(31)
@@ -100,6 +102,7 @@ public class DbInitData {
                 .sku("TestSKU3")
                 .description("good for all activities")
                 .price(23.44)
+                .title("Smok")
                 .imageUrl("htt[://test3.test3")
                 .isActive(true)
                 .unitsInStock(2)
@@ -111,6 +114,7 @@ public class DbInitData {
                 .sku("TestSKU4")
                 .description("good 4 outdoor activities")
                 .price(64.84)
+                .title("BadHat")
                 .imageUrl("htt[://test4.test4")
                 .isActive(true)
                 .unitsInStock(33)
@@ -122,6 +126,7 @@ public class DbInitData {
                 .sku("TestSKU5")
                 .description("good for indoor activities")
                 .price(55.23)
+                .title("Shoee")
                 .imageUrl("htt[://test5.test5")
                 .isActive(true)
                 .unitsInStock(11)
@@ -133,6 +138,7 @@ public class DbInitData {
                 .sku("TestSKU6")
                 .description("good for all activities")
                 .price(66.66)
+                .title("Speek")
                 .imageUrl("htt[://test6.test6")
                 .isActive(true)
                 .unitsInStock(1)

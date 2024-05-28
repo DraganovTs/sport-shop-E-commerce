@@ -1,5 +1,6 @@
-package com.sport.shop.products.entity;
+package com.sport.shop.products.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,8 @@ public class Product extends BaseEntity{
     private String sku;
     @Column(name = "description")
     private String description;
+    @Column(name = "title")
+    private String title;
     @Column(name = "price")
     private double price;
     @Column(name = "image_url")
@@ -28,9 +31,11 @@ public class Product extends BaseEntity{
     private boolean isActive;
     @Column(name = "units_in_stock")
     private int unitsInStock;
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;

@@ -16,3 +16,8 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+
+pagination:
+  page:
+    size:
+      default: 12

@@ -1,6 +1,6 @@
 package com.sport.shop.products.repository;
 
-import com.sport.shop.products.entity.Category;
+import com.sport.shop.products.model.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

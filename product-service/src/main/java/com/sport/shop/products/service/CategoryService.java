@@ -1,6 +1,6 @@
 package com.sport.shop.products.service;
 
-import com.sport.shop.products.entity.Category;
+import com.sport.shop.products.model.entity.Category;
 import com.sport.shop.products.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 

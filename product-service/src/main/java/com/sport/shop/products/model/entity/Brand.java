@@ -1,5 +1,7 @@
-package com.sport.shop.products.entity;
+package com.sport.shop.products.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +20,7 @@ public class Brand {
     private Long brandId;
     @Column(name = "brand_name")
     private String brandName;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "brand")
     private Set<Product> products;
 }
