@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "v1/sport", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "v1/sport/shop", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class ProductController {
 
     private final CategoryService categoryService;
