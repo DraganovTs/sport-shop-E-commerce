@@ -34,36 +34,37 @@ public class ProductController {
 
     @GetMapping("/products")
     public ResponseEntity<ProductResponseListDTO> getProducts(ProductSpecParams specParams) {
-
         ProductResponseListDTO productList = productService.getProductList(specParams);
-        return ResponseEntity
-                .ok(productList);
+        if (productList == null || productList.getProductList().isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(productList);
     }
 
     @GetMapping("/products/{id}")
     public ResponseEntity<ProductResponseDTO> getProductById(@PathVariable long id) {
-
         ProductResponseDTO responseDTO = productService.getProductById(id);
-        return ResponseEntity
-                .ok(responseDTO);
+        if (responseDTO == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(responseDTO);
     }
 
     @GetMapping("/categories")
-    public ResponseEntity<List<Category>> categories() {
+    public ResponseEntity<List<Category>> getCategories() {
         List<Category> categories = categoryService.getAllCategories();
         if (categories.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok().body(categories);
+        return ResponseEntity.ok(categories);
     }
 
-
     @GetMapping("/brands")
-    public ResponseEntity<List<Brand>> brands() {
+    public ResponseEntity<List<Brand>> getBrands() {
         List<Brand> brands = brandService.getAllBrands();
         if (brands.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok().body(brands);
+        return ResponseEntity.ok(brands);
     }
 }

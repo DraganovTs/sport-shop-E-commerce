@@ -3,6 +3,7 @@ package com.sport.shop.products.controller;
 import com.sport.shop.products.model.dto.ShoppingCartDTO;
 import com.sport.shop.products.model.entity.ShoppingCart;
 import com.sport.shop.products.service.impl.ShoppingCartServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,28 +19,24 @@ public class ShoppingCartController {
         this.shoppingCartService = shoppingCartService;
     }
 
-    @PostMapping()
-    public ResponseEntity<ShoppingCart> createCart(@RequestBody ShoppingCartDTO cartDTO) {
+    @PostMapping
+    public ResponseEntity<ShoppingCart> createCart(@Valid @RequestBody ShoppingCartDTO cartDTO) {
         ShoppingCart cart = shoppingCartService.createCart(cartDTO);
         return ResponseEntity.ok(cart);
-
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ShoppingCart> getCartById(@PathVariable String id) {
-        Optional<ShoppingCart> optionalCart = shoppingCartService.getCartById(id);
-        if (optionalCart.isPresent()) {
-            return ResponseEntity.ok(optionalCart.get());
-        }
-        return ResponseEntity.notFound().build();
+        return shoppingCartService.getCartById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteCart(@PathVariable String id) {
-        Optional<ShoppingCart> optionalCart = shoppingCartService.getCartById(id);
-        if (optionalCart.isPresent()) {
-            shoppingCartService.deleteBasketById(id);
-            return ResponseEntity.ok(id);
+    public ResponseEntity<Void> deleteCart(@PathVariable String id) {
+        if (shoppingCartService.getCartById(id).isPresent()) {
+            shoppingCartService.deleteCartById(id);
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
     }

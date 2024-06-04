@@ -1,5 +1,6 @@
 package com.sport.shop.products.service.impl;
 
+import com.sport.shop.products.exception.ShoppingCartNotFoundException;
 import com.sport.shop.products.model.dto.ShoppingCartDTO;
 import com.sport.shop.products.model.entity.ShoppingCart;
 import com.sport.shop.products.repository.ShoppingCartRepository;
@@ -17,6 +18,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         this.shoppingCartRepository = shoppingCartRepository;
     }
 
+
     @Override
     public ShoppingCart createCart(ShoppingCartDTO cartDTO) {
         ShoppingCart shoppingCart = new ShoppingCart(cartDTO.getId());
@@ -30,7 +32,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public void deleteBasketById(String id) {
+    public void deleteCartById(String id) {
+        if (!shoppingCartRepository.existsById(id)) {
+            throw new ShoppingCartNotFoundException(id);
+        }
         shoppingCartRepository.deleteById(id);
     }
 }
