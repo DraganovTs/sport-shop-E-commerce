@@ -1,4 +1,4 @@
-package com.sport.shop.products.service;
+package com.sport.shop.products.service.impl;
 
 import com.sport.shop.products.model.entity.Category;
 import com.sport.shop.products.repository.CategoryRepository;
