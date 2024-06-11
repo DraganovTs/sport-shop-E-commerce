@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("v1/sport/cart")
 public class ShoppingCartController {
 
     private final ShoppingCartServiceImpl shoppingCartService;
